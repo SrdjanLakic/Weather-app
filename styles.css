@@ -23,3 +23,12 @@ body {
 .temperature {
   flex-direction: column;
 }
+.degree-zone {
+  display: flex;
+  align-items: center;
+}
+.degree-zone span {
+  margin: 10px;
+  font-weight: bold;
+  font-size: large;
+}
