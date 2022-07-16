@@ -21,6 +21,9 @@ window.addEventListener('load', () => {
         })
         .then((data) => {
           console.log(data);
+          temperature.textContent = data.data[0].temp;
+          temperatureDescription.textContent = data.data[0].weather.description;
+          timezoneLocation.textContent = data.data[0].timezone;
         });
     });
   } else {
