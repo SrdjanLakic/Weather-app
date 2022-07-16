@@ -1,7 +1,11 @@
 window.addEventListener('load', () => {
   let lon;
   let lat;
-  const API_KEY = 'e9972c70265e580963d7930ca994c94c';
+  let temperature = document.querySelector('.temperature-degree');
+  let temperatureDescription = document.querySelector(
+    '.temperature-description'
+  );
+  let timezoneLocation = document.querySelector('.location-timezone');
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -10,13 +14,16 @@ window.addEventListener('load', () => {
       console.log(position);
       console.log(lat, lon);
 
-      const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${API_KEY}`;
+      const api = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=33605dcddc9f4b1eb7bf9f252c99f90e&include=minutely`;
       fetch(api)
         .then((data) => {
           return data.json();
         })
         .then((data) => {
           console.log(data);
+          temperature.textContent = data.data[0].temp;
+          temperatureDescription.textContent = data.data[0].weather.description;
+          timezoneLocation.textContent = data.data[0].timezone;
         });
     });
   } else {
