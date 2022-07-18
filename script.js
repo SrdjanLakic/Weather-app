@@ -30,12 +30,7 @@ window.addEventListener("load", () => {
           degreeSection.addEventListener("click", () => {
             if (temperatureSpan.textContent === "C") {
               temperatureSpan.textContent = "F";
-              let temp = Math.floor(fahrenheit);
-              console.log(
-                temperatureSpan.textContent,
-                temperatureDegree.textContent,
-                temp
-              );
+              temperatureDegree.textContent = fahrenheit;
             } else {
               temperatureSpan.textContent = "C";
               temperatureDegree.textContent = temp;
