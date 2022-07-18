@@ -1,14 +1,15 @@
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   let lon;
   let lat;
-  const temperatureDegree = document.querySelector(".temperature-degree");
+  const temperatureDegree = document.querySelector('.temperature-degree');
   const temperatureDescription = document.querySelector(
-    ".temperature-description"
+    '.temperature-description'
   );
-  const timezoneLocation = document.querySelector(".location-timezone");
-  let degreeSection = document.querySelector(".temperature");
-  const temperatureSpan = document.querySelector(".temperature span");
-  let date = document.querySelector(".date");
+  const timezoneLocation = document.querySelector('.location-timezone');
+  const degreeSection = document.querySelector('.temperature');
+  const temperatureSpan = document.querySelector('.temperature span');
+  const date = document.querySelector('.date');
+  const icons = document.querySelector('.description-icon');
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -22,25 +23,31 @@ window.addEventListener("load", () => {
         })
         .then((data) => {
           console.log(data);
-          const { temp, timezone, datetime } = data.data[0];
+          const { temp, timezone, datetime, weather } = data.data[0];
           temperatureDegree.textContent = temp;
-          temperatureDescription.textContent = data.data[0].weather.description;
+          temperatureDescription.textContent = weather.description;
           timezoneLocation.textContent = timezone;
-          date.textContent = datetime.slice(0, 10).replaceAll("-", "/");
-
+          date.textContent = datetime.slice(0, 10).replaceAll('-', '/');
+          const description = weather.description;
+          console.log(description);
           let fahrenheit = temp * (9 / 5) + 32;
-          degreeSection.addEventListener("click", () => {
-            if (temperatureSpan.textContent === "C") {
-              temperatureSpan.textContent = "F";
+
+          degreeSection.addEventListener('click', () => {
+            if (temperatureSpan.textContent === 'C') {
+              temperatureSpan.textContent = 'F';
               temperatureDegree.textContent = Math.floor(fahrenheit);
             } else {
-              temperatureSpan.textContent = "C";
+              temperatureSpan.textContent = 'C';
               temperatureDegree.textContent = temp;
             }
           });
+          if (description.includes('cloud')) {
+            console.log('hey');
+            icons.innerHTML = '<i class="fa-solid fa-clouds"></i>';
+          }
         });
     });
   } else {
-    h1.textContent = " Hey there, please enable your location";
+    h1.textContent = ' Hey there, please enable your location';
   }
 });
