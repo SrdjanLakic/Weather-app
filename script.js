@@ -41,10 +41,10 @@ window.addEventListener('load', () => {
               temperatureDegree.textContent = temp;
             }
           });
-          if (description.includes('cloud')) {
-            console.log('hey');
-            icons.innerHTML = '<i class="fa-solid fa-clouds"></i>';
-          }
+          // if (description.includes('cloud')) {
+          //   console.log('hey');
+          //   icons.innerHTML = '<i class="fa-solid fa-clouds"></i>';
+          // }
         });
     });
   } else {

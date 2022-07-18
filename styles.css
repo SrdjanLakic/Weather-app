@@ -47,3 +47,11 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+.temperature-description {
+  font-weight: bold;
+  font-size: x-large;
+}
+.description-icon {
+  font-size: xxx-large;
+  color: skyblue;
+}
