@@ -47,4 +47,3 @@ window.addEventListener("load", () => {
     h1.textContent = " Hey there, please enable your location";
   }
 });
-("test");
