@@ -1,13 +1,13 @@
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   let lon;
   let lat;
-  const temperatureDegree = document.querySelector('.temperature-degree');
+  const temperatureDegree = document.querySelector(".temperature-degree");
   const temperatureDescription = document.querySelector(
-    '.temperature-description'
+    ".temperature-description"
   );
-  const timezoneLocation = document.querySelector('.location-timezone');
-  let degreeSection = document.querySelector('.temperature');
-  const temperatureSpan = document.querySelector('.temperature span');
+  const timezoneLocation = document.querySelector(".location-timezone");
+  let degreeSection = document.querySelector(".temperature");
+  const temperatureSpan = document.querySelector(".temperature span");
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -27,19 +27,23 @@ window.addEventListener('load', () => {
           timezoneLocation.textContent = timezone;
 
           let fahrenheit = temp * (9 / 5) + 32;
-
-          degreeSection.addEventListener('click', () => {
-            if (temperatureSpan.textContent === 'C') {
-              temperatureSpan.textContent === 'F';
-              temp === Math.floor(fahrenheit);
+          degreeSection.addEventListener("click", () => {
+            if (temperatureSpan.textContent === "C") {
+              temperatureSpan.textContent = "F";
+              let temp = Math.floor(fahrenheit);
+              console.log(
+                temperatureSpan.textContent,
+                temperatureDegree.textContent,
+                temp
+              );
             } else {
-              temperatureSpan.textContent === 'C';
-              temperatureDegree.textContent === temp;
+              temperatureSpan.textContent = "C";
+              temperatureDegree.textContent = temp;
             }
           });
         });
     });
   } else {
-    h1.textContent = ' Hey there, please enable your location';
+    h1.textContent = " Hey there, please enable your location";
   }
 });
