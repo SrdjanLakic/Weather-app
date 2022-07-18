@@ -8,6 +8,7 @@ window.addEventListener("load", () => {
   const timezoneLocation = document.querySelector(".location-timezone");
   let degreeSection = document.querySelector(".temperature");
   const temperatureSpan = document.querySelector(".temperature span");
+  const date = document.querySelector(".date");
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -30,7 +31,7 @@ window.addEventListener("load", () => {
           degreeSection.addEventListener("click", () => {
             if (temperatureSpan.textContent === "C") {
               temperatureSpan.textContent = "F";
-              temperatureDegree.textContent = fahrenheit;
+              temperatureDegree.textContent = Math.floor(fahrenheit);
             } else {
               temperatureSpan.textContent = "C";
               temperatureDegree.textContent = temp;
