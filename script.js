@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
           temperatureDegree.textContent = temp;
           temperatureDescription.textContent = data.data[0].weather.description;
           timezoneLocation.textContent = timezone;
-          date.textContent = datetime;
+          date.textContent = datetime.slice(0, 10).replaceAll("-", "/");
 
           let fahrenheit = temp * (9 / 5) + 32;
           degreeSection.addEventListener("click", () => {
