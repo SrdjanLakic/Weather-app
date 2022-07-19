@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-size: 30px;
 }
 .temperature {
   flex-direction: column;
@@ -62,4 +63,7 @@ body {
 .description-icon {
   height: rem;
   color: rgb(9, 58, 80);
+}
+.date {
+  font-size: 30px;
 }
