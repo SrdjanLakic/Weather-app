@@ -9,7 +9,8 @@ window.addEventListener('load', () => {
   const degreeSection = document.querySelector('.temperature');
   const temperatureSpan = document.querySelector('.temperature span');
   const date = document.querySelector('.date');
-  const icons = document.querySelector('.description-icon');
+  const weatherDesription = document.querySelector('.description');
+  const descriptionIcon = document.querySelector('.description-icon');
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -29,7 +30,7 @@ window.addEventListener('load', () => {
           timezoneLocation.textContent = timezone;
           date.textContent = datetime.slice(0, 10).replaceAll('-', '/');
           const description = weather.description;
-          console.log(description);
+
           let fahrenheit = temp * (9 / 5) + 32;
 
           degreeSection.addEventListener('click', () => {
@@ -41,10 +42,27 @@ window.addEventListener('load', () => {
               temperatureDegree.textContent = temp;
             }
           });
-          // if (description.includes('cloud')) {
-          //   console.log('hey');
-          //   icons.innerHTML = '<i class="fa-solid fa-clouds"></i>';
-          // }
+
+          if (description.includes('sky')) {
+            console.log(description);
+            console.log('ho');
+            document.body.style.backgroundImage = "url('sky.png')";
+            descriptionIcon.innerHTML =
+              "<i class='fa-solid fa-sun-bright'></i>";
+          } else if (description.includes('cloud') && temp > 20) {
+            console.log('cloud');
+            descriptionIcon.innerHTML = "<i class='fa-solid fa-clouds'></i>";
+            document.body.style.backgroundImage = "url('sunny1.jpg')";
+          } else if (description.includes('rain' || 'drizzle')) {
+            console.log('rain');
+            descriptionIcon.innerHTML = "url('rain.jpg";
+            ("<i class='fa-solid fa-cloud-rain'></i>");
+          } else if (description.includes('Thunderstorm')) {
+            console.log('thunder');
+            document.body.style.backgroundImage = "url('thunderstorm.jpg')";
+          } else if (description.includes('snow')) {
+            document.body.style.backgroundImage = "url('snow.jpg')";
+          }
         });
     });
   } else {
