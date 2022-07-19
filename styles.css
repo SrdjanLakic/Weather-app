@@ -28,6 +28,9 @@ body {
 .temperature {
   flex-direction: column;
 }
+.temperature-degree {
+  font-size: xx-large;
+}
 .degree-zone {
   display: flex;
   align-items: center;
@@ -39,7 +42,7 @@ body {
   font-size: xx-large;
 }
 .degree-zone h2 {
-  font-size: 50px;
+  font-size: 100px;
 }
 .temperature-description {
   font-weight: bold;
@@ -49,7 +52,7 @@ body {
   height: 30vh;
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .temperature-description {
@@ -58,5 +61,5 @@ body {
 }
 .description-icon {
   height: rem;
-  color: skyblue;
+  color: rgb(9, 58, 80);
 }

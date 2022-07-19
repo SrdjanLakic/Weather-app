@@ -11,6 +11,13 @@ window.addEventListener('load', () => {
   const date = document.querySelector('.date');
   const weatherDesription = document.querySelector('.description');
   const descriptionIcon = document.querySelector('.description-icon');
+  const now = new Date();
+  const day = now.getDate();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
+  const hour = now.getHours();
+  const min = now.getMinutes();
+  date.textContent = `${month}/${day}/${year}  ${hour}:${min}`;
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -23,12 +30,11 @@ window.addEventListener('load', () => {
           return data.json();
         })
         .then((data) => {
-          console.log(data);
           const { temp, timezone, datetime, weather } = data.data[0];
           temperatureDegree.textContent = temp;
           temperatureDescription.textContent = weather.description;
           timezoneLocation.textContent = timezone;
-          date.textContent = datetime.slice(0, 10).replaceAll('-', '/');
+
           const description = weather.description;
 
           let fahrenheit = temp * (9 / 5) + 32;
@@ -45,7 +51,7 @@ window.addEventListener('load', () => {
 
           if (description.includes('sky')) {
             console.log(description);
-            console.log('ho');
+            console.log('sky');
             document.body.style.backgroundImage = "url('sky.png')";
             descriptionIcon.innerHTML =
               "<i class='fa-solid fa-sun-bright fa-6x'></i>";
@@ -53,7 +59,7 @@ window.addEventListener('load', () => {
             console.log('cloud');
             descriptionIcon.innerHTML =
               "<i class='fa-solid fa-cloud fa-6x'></i>";
-            document.body.style.backgroundImage = "url('sunny1.jpg')";
+            document.body.style.backgroundImage = "url('cloud.jpg')";
           } else if (description.includes('rain' || 'drizzle')) {
             console.log('rain');
             descriptionIcon.innerHTML = "url('rain.jpg";
