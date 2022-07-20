@@ -54,21 +54,21 @@ window.addEventListener('load', () => {
             console.log('sky');
             document.body.style.backgroundImage = "url('sky.png')";
             descriptionIcon.innerHTML =
-              "<i class='fa-solid fa-sun-bright fa-6x'></i>";
+              "<i class='fa-solid fa-sun-bright fa-4x'></i>";
           } else if (description.includes('cloud') && temp > 20) {
             console.log('cloud');
             descriptionIcon.innerHTML =
-              "<i class='fa-solid fa-cloud fa-6x'></i>";
+              "<i class='fa-solid fa-cloud fa-4x'></i>";
             document.body.style.backgroundImage = "url('cloud.jpg')";
           } else if (description.includes('rain' || 'drizzle')) {
             console.log('rain');
             descriptionIcon.innerHTML = "url('rain.jpg";
-            ("<i class='fa-solid fa-cloud-rain fa-6x'></i>");
+            ("<i class='fa-solid fa-cloud-rain fa-4x'></i>");
           } else if (description.includes('Thunderstorm')) {
             console.log('thunder');
             document.body.style.backgroundImage = "url('thunderstorm.jpg')";
             descriptionIcon.innerHTML =
-              '<i class="fa-solid fa-cloud-bolt fa-6x"></i>';
+              '<i class="fa-solid fa-cloud-bolt fa-4x"></i>';
           } else if (description.includes('snow')) {
             document.body.style.backgroundImage = "url('snow.jpg')";
             descriptionIcon.innerHTML =
